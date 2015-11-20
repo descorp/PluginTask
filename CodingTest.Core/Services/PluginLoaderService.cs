@@ -1,13 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CodingTest.Core.Services
+﻿namespace CodingTest.Core.Services
 {
-    public class PluginLoaderService
-    {
+    using System.Collections.Generic;
 
+    using CodingTest.Common.Plugins;
+
+    public class PluginLoaderService : IPluginManager
+    {
+        private List<IParserPlugin> plugins;
+
+        #region Implementation of IPluginManager
+
+        public void Start()       
+        {
+            string[] dllFileNames = null;
+            if (Directory.Exists(path))
+            {
+                dllFileNames = Directory.GetFiles(path, "*.dll");
+            }
+        }
+
+        public List<IParserPlugin> Plugins
+        {
+            get
+            {
+                return this.plugins;
+            }
+        }
+
+        #endregion
+    }
+
+    public interface IPluginManager
+    {
+        void Start();
+
+        List<IParserPlugin> Plugins { get; }
     }
 }

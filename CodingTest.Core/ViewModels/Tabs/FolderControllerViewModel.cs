@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CodingTest.Core.ViewModels.Tabs
+﻿namespace CodingTest.Core.ViewModels.Tabs
 {
-    class FolderControllerViewModel
+    using Cirrious.MvvmCross.ViewModels;
+
+    public class FolderControllerViewModel : MvxViewModel
     {
+
     }
 }

@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CodingTest.Core.Model
+namespace CodingTest.Common.Parser
 {
-    public class DataSample
+    public interface IParser<TData>
     {
+        string Status { get; }
 
+        List<TData> Process(string raw);
     }
 }

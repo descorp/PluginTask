@@ -1,16 +1,11 @@
 ﻿{
-  "supports": {
-    "net46.app": {},
-    "uwp.10.0.app": {}
-  },
+  "supports": {},
   "dependencies": {
-    "Microsoft.NETCore": "5.0.0",
-    "Microsoft.NETCore.Portable.Compatibility": "1.0.0",
+    "Microsoft.Bcl": "1.1.10",
+    "MvvmCross.HotTuna.Plugin.File": "4.0.0-beta5",
     "MvvmCross.HotTuna.StarterPack": "4.0.0-beta5"
   },
   "frameworks": {
-    "dotnet": {
-      "imports": "portable-net452+win81"
-    }
+    ".NETPortable,Version=v4.5,Profile=Profile7": {}
   }
 }
