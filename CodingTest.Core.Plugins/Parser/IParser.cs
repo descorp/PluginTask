@@ -10,6 +10,6 @@ namespace CodingTest.Common.Parser
     {
         string Status { get; }
 
-        List<TData> Process(string raw);
+        Task<TData> Process(string raw);
     }
 }

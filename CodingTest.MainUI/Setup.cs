@@ -6,6 +6,11 @@ using Cirrious.MvvmCross.Wpf.Views;
 
 namespace CodingTest.MainUI
 {
+    using Cirrious.CrossCore;
+
+    using CodingTest.Common.Plugins;
+    using CodingTest.Core.Services;
+
     public class Setup
         : MvxWpfSetup
     {
@@ -13,6 +18,17 @@ namespace CodingTest.MainUI
             : base(dispatcher, presenter)
         {
         }
+
+        #region Overrides of MvxSetup
+
+        protected override void InitializeLastChance()
+        {
+            base.InitializeLastChance();
+
+            Mvx.RegisterSingleton<IPluginManager<IParserPlugin>>(new PluginLoaderService<IParserPlugin>("Plugins"));
+        }
+
+        #endregion
 
         protected override IMvxApplication CreateApp()
         {

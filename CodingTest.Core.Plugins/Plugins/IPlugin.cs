@@ -3,6 +3,5 @@
     public interface IPlugin
     {
         string Name { get; }
-        IPluginHost Host { get; set; }       
     }
 }

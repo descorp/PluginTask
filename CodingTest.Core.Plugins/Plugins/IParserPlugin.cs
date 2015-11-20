@@ -3,10 +3,10 @@ namespace CodingTest.Common.Plugins
     using CodingTest.Common.Model;
     using CodingTest.Common.Parser;
 
-    public interface IParserPlugin : IPlugin
+    public interface IParserPlugin<TData> : IPlugin
     {
         string FileFormat { get; }
 
-        IParser<DataSample> Parser { get; }
+        IParser<TData> Parser { get; }
     }
 }
