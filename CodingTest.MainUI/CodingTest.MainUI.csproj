@@ -58,6 +58,9 @@
       <HintPath>..\packages\MvvmCross.HotTuna.MvvmCrossLibraries.4.0.0-beta5\lib\net45\Cirrious.MvvmCross.Wpf.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="MvvmCross.Plugins.File">
+      <HintPath>C:\Users\abramichev\.nuget\packages\MvvmCross.HotTuna.Plugin.File\4.0.0-beta5\lib\portable-win+net45+wp8+win8+wpa81\MvvmCross.Plugins.File.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -84,6 +87,7 @@
     </Compile>
     <Compile Include="App.Xaml.Mvx.cs" />
     <Compile Include="DebugTrace.cs" />
+    <Compile Include="Service\PluginLoaderService.cs" />
     <Compile Include="Setup.cs" />
     <Compile Include="Views\FirstView.xaml.cs">
       <DependentUpon>FirstView.xaml</DependentUpon>
@@ -124,6 +128,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CodingTest.Core.Plugins\CodingTest.Core.Common.csproj">
+      <Project>{E3C0D811-7FE5-4EAC-868C-BCAD9AF5824E}</Project>
+      <Name>CodingTest.Core.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CodingTest.Core\CodingTest.Core.csproj">
       <Project>{05cd4540-5460-4720-a523-7f736102abae}</Project>
       <Name>CodingTest.Core</Name>

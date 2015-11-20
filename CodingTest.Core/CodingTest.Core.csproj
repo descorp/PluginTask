@@ -43,7 +43,7 @@
     <Compile Include="Services\DataStorageService.cs" />
     <Compile Include="Services\FolderObserverService.cs" />
     <Compile Include="Model\ObservedFile.cs" />
-    <Compile Include="Services\PluginLoaderService.cs" />
+    <Compile Include="Services\IPluginManager.cs" />
     <Compile Include="ViewModels\RootViewModel.cs" />
     <Compile Include="ViewModels\Tabs\FolderControllerViewModel.cs" />
     <Compile Include="ViewModels\Tabs\PluginsViewModel.cs" />

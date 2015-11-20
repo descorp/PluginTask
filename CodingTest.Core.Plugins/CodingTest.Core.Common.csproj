@@ -39,6 +39,7 @@
   <ItemGroup>
     <Compile Include="Model\DataSample.cs" />
     <Compile Include="Parser\IParser.cs" />
+    <Compile Include="Plugins\IParserPlugin.cs" />
     <Compile Include="Plugins\IPluginHost.cs" />
     <Compile Include="Plugins\IPlugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
