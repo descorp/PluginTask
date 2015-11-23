@@ -8,6 +8,7 @@ namespace CodingTest.MainUI
 {
     using Cirrious.CrossCore;
 
+    using CodingTest.Common.Model;
     using CodingTest.Common.Plugins;
     using CodingTest.Core.Services;
 
@@ -25,7 +26,7 @@ namespace CodingTest.MainUI
         {
             base.InitializeLastChance();
 
-            Mvx.RegisterSingleton<IPluginManager<IParserPlugin>>(new PluginLoaderService<IParserPlugin>("Plugins"));
+            Mvx.RegisterSingleton<IPluginManager<IParserPlugin<DataSample>>>(new PluginLoaderService<IParserPlugin<DataSample>>("Plugins"));
         }
 
         #endregion
