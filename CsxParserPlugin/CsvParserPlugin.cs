@@ -1,6 +1,9 @@
 ﻿namespace XmlParser
 {
+    using System;
+    using System.Collections;
     using System.IO;
+    using System.Linq;
     using System.Threading.Tasks;
     using System.Xml;
     using System.Xml.Serialization;
@@ -30,16 +33,20 @@
 
             public Task<TData> Process(string filepath)
             {
-                var serializer = new XmlSerializer(typeof(TData));
-
                 // A FileStream is needed to read the XML document.
                 var fs = File.ReadAllLines(filepath);
 
+                var fields = fs[0].Split(new[] {" ", "   "}, StringSplitOptions.RemoveEmptyEntries);
 
+                    foreach (var line in fs.Skip(1))
+                    {
+                        var item = Activator.CreateInstance<TData>();
 
-                // Declare an object variable of the type to be deserialized.
-                var data = (TData)serializer.Deserialize(reader);
-
+                        foreach (var field in fields)
+                        {
+                            typeof(TData).GetField(field)
+                        }
+                    }
 
                 return data;
             }
@@ -56,5 +63,7 @@
         public IParser<TData> Parser { get; }
 
         #endregion
+
+
     }
 }

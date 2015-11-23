@@ -44,9 +44,9 @@
     <Compile Include="XmlParserPlugin.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CodingTest.Core.Plugins\CodingTest.Core.Common.csproj">
+    <ProjectReference Include="..\CodingTest.Core.Plugins\CodingTest.Common.csproj">
       <Project>{E3C0D811-7FE5-4EAC-868C-BCAD9AF5824E}</Project>
-      <Name>CodingTest.Core.Common</Name>
+      <Name>CodingTest.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
