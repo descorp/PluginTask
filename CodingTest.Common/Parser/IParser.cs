@@ -7,6 +7,6 @@ namespace CodingTest.Common.Parser
     {
         string Status { get; }
 
-        Task<List<TData>> Process(string raw);
+        Task<List<TData>> Process(string filename);
     }
 }

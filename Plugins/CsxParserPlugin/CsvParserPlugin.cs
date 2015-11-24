@@ -35,10 +35,10 @@ namespace CsxParserPlugin
 
             public string Status { get; }
 
-            public async Task<List<TData>> Process(string filepath)
+            public async Task<List<TData>> Process(string filename)
             {
                 var data = new List<TData>();
-                var fs = File.ReadAllLines(filepath).ToList();
+                var fs = File.ReadAllLines(filename).ToList();
 
                 var fields = fs[0].Split(new[] {" ", "   "}, StringSplitOptions.RemoveEmptyEntries);
 

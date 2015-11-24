@@ -5,8 +5,9 @@ namespace CodingTest.Core.Services
     using CodingTest.Common.Plugins;
 
     public interface IPluginManager<TSomePlugin>
+        where TSomePlugin : IPlugin
     {
-        void Start();
+        void ScanFolder(string folder);
 
         List<TSomePlugin> Plugins { get; }
     }

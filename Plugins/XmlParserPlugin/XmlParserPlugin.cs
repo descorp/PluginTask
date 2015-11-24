@@ -29,12 +29,12 @@ namespace XmlParserPlugin
 
             public string Status { get; }
 
-            public async Task<List<TData>> Process(string filepath)
+            public async Task<List<TData>> Process(string filename)
             {
                 var serializer = new XmlSerializer(typeof(List<TData>));
 
                 // A FileStream is needed to read the XML document.
-                var fs = new FileStream(filepath, FileMode.Open);
+                var fs = new FileStream(filename, FileMode.Open);
                 var reader = XmlReader.Create(fs);
 
                 // Declare an object variable of the type to be deserialized.

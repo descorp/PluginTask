@@ -66,6 +66,10 @@
       <HintPath>..\packages\MvvmCross.HotTuna.Plugin.File.4.0.0-beta5\lib\net45\MvvmCross.Plugins.File.Wpf.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="MvvmCross.Plugins.Messenger, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmCross.HotTuna.Plugin.Messenger.4.0.0-beta5\lib\net45\MvvmCross.Plugins.Messenger.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -92,11 +96,20 @@
     </Compile>
     <Compile Include="App.Xaml.Mvx.cs" />
     <Compile Include="Bootstrap\FilePluginBootstrap.cs" />
+    <Compile Include="Bootstrap\MessengerPluginBootstrap.cs" />
     <Compile Include="DebugTrace.cs" />
-    <Compile Include="Service\PluginLoaderService.cs" />
     <Compile Include="Setup.cs" />
+    <Compile Include="Views\DataView.xaml.cs">
+      <DependentUpon>DataView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\FirstView.xaml.cs">
       <DependentUpon>FirstView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FolderView.xaml.cs">
+      <DependentUpon>FolderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PluginsView.xaml.cs">
+      <DependentUpon>PluginsView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -128,9 +141,21 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Views\DataView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\FirstView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\FolderView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PluginsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -142,6 +167,9 @@
       <Project>{05cd4540-5460-4720-a523-7f736102abae}</Project>
       <Name>CodingTest.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Service\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

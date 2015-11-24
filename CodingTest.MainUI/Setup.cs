@@ -20,17 +20,6 @@ namespace CodingTest.MainUI
         {
         }
 
-        #region Overrides of MvxSetup
-
-        protected override void InitializeFirstChance()
-        {
-            base.InitializeFirstChance();
-
-            Mvx.RegisterSingleton<IPluginManager<IParserPlugin<DataSample>>>(new PluginLoaderService<IParserPlugin<DataSample>>("Plugins"));
-        }
-
-        #endregion
-
         protected override IMvxApplication CreateApp()
         {
             return new Core.App();

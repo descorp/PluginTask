@@ -58,6 +58,17 @@
           "lib/portable-win+net45+wp8+win8+wpa81/MvvmCross.Plugins.File.dll": {}
         }
       },
+      "MvvmCross.HotTuna.Plugin.Messenger/4.0.0-beta5": {
+        "dependencies": {
+          "MvvmCross.HotTuna.CrossCore": "[4.0.0-beta5, )"
+        },
+        "compile": {
+          "lib/portable-win+net45+wp8+win8+wpa81/MvvmCross.Plugins.Messenger.dll": {}
+        },
+        "runtime": {
+          "lib/portable-win+net45+wp8+win8+wpa81/MvvmCross.Plugins.Messenger.dll": {}
+        }
+      },
       "MvvmCross.HotTuna.StarterPack/4.0.0-beta5": {
         "dependencies": {
           "MvvmCross.HotTuna.Binding": "[4.0.0-beta5, )",
@@ -312,6 +323,33 @@
         "package/services/metadata/core-properties/e739a8d7e71b4cb3953589143346bff4.psmdcp"
       ]
     },
+    "MvvmCross.HotTuna.Plugin.Messenger/4.0.0-beta5": {
+      "sha512": "fLEvvP7Gr5oU3zfDXi9GvnkUjR35KUCYl/I4lqZuw/Tba1SkaPb5MwvBpHFG3bS9SmKmL5uZWdpGCe3q7C50BA==",
+      "type": "Package",
+      "files": [
+        "[Content_Types].xml",
+        "_rels/.rels",
+        "content/MonoAndroid/Bootstrap/MessengerPluginBootstrap.cs.pp",
+        "content/net45/Bootstrap/MessengerPluginBootstrap.cs.pp",
+        "content/netcore45/Bootstrap/MessengerPluginBootstrap.cs.pp",
+        "content/win81/Bootstrap/MessengerPluginBootstrap.cs.pp",
+        "content/wp8/Bootstrap/MessengerPluginBootstrap.cs.pp",
+        "content/wpa81/Bootstrap/MessengerPluginBootstrap.cs.pp",
+        "content/Xamarin.iOS10/Bootstrap/MessengerPluginBootstrap.cs.pp",
+        "lib/dotnet/MvvmCross.Plugins.Messenger.dll",
+        "lib/MonoAndroid/MvvmCross.Plugins.Messenger.dll",
+        "lib/net45/MvvmCross.Plugins.Messenger.dll",
+        "lib/netcore45/MvvmCross.Plugins.Messenger.dll",
+        "lib/portable-win+net45+wp8+win8+wpa81/MvvmCross.Plugins.Messenger.dll",
+        "lib/portable-win81+wpa81/MvvmCross.Plugins.Messenger.dll",
+        "lib/win81/MvvmCross.Plugins.Messenger.dll",
+        "lib/wp8/MvvmCross.Plugins.Messenger.dll",
+        "lib/wpa81/MvvmCross.Plugins.Messenger.dll",
+        "lib/Xamarin.iOS10/MvvmCross.Plugins.Messenger.dll",
+        "MvvmCross.HotTuna.Plugin.Messenger.nuspec",
+        "package/services/metadata/core-properties/52c00c3b406e42f5aee29e6c60b37bd8.psmdcp"
+      ]
+    },
     "MvvmCross.HotTuna.StarterPack/4.0.0-beta5": {
       "sha512": "BnuytIRd9FwougznNWPDv/BptAInx1XNRkj02FtSCMtOoQdTt0O3OuyHTfXsfjCbsYNfCT8R5Bps44sksQjMsg==",
       "type": "Package",
@@ -378,6 +416,7 @@
     "": [
       "Microsoft.Bcl >= 1.1.10",
       "MvvmCross.HotTuna.Plugin.File >= 4.0.0-beta5",
+      "MvvmCross.HotTuna.Plugin.Messenger >= 4.0.0-beta5",
       "MvvmCross.HotTuna.StarterPack >= 4.0.0-beta5"
     ],
     ".NETPortable,Version=v4.5,Profile=Profile7": []

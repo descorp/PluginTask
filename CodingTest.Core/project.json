@@ -3,6 +3,7 @@
   "dependencies": {
     "Microsoft.Bcl": "1.1.10",
     "MvvmCross.HotTuna.Plugin.File": "4.0.0-beta5",
+    "MvvmCross.HotTuna.Plugin.Messenger": "4.0.0-beta5",
     "MvvmCross.HotTuna.StarterPack": "4.0.0-beta5"
   },
   "frameworks": {

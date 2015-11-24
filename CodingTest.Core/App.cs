@@ -12,15 +12,13 @@ namespace CodingTest.Core
     public class App : MvxApplication
     {
         public override void Initialize()
-        {           
-            RegisterAppStart<RootViewModel>();
-        }
-
-        public override void LoadPlugins(IMvxPluginManager pluginManager)
         {
-            base.LoadPlugins(pluginManager);
 
-            Mvx.Resolve<IPluginManager<IParserPlugin<DataSample>>>().Start();
+            Mvx.ConstructAndRegisterSingleton<IPluginManager<IParserPlugin<DataSample>>, PluginLoaderService<IParserPlugin<DataSample>>>();
+            Mvx.ConstructAndRegisterSingleton<IFolderObserver, FolderObserverService>();
+            Mvx.ConstructAndRegisterSingleton <IParserService<DataSample>, ParserService>();
+
+            RegisterAppStart<RootViewModel>();
         }
     }
 }

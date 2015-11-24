@@ -6,7 +6,7 @@
 
     using CodingTest.Common.Model;
 
-    public class ObservedFile : MvxNotifyPropertyChanged
+    public class ObservedFileItem<TData> : MvxNotifyPropertyChanged
     {
         private string name;
 
@@ -38,6 +38,8 @@
             }
         }
 
-        private List<DataSample> Data { get; set; }
+        public List<TData> Data { get; set; }
+
+        public string Count => (this.Data?.Count ?? 0).ToString();
     }
 }
