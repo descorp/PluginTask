@@ -25,6 +25,12 @@ namespace CsxParserPlugin
 
         internal class CsvParser : IParser<TData>
         {
+            public CsvParser()
+            {
+                Status = "ok";
+            }
+
+
             #region Implementation of IParser<TData>
 
             public string Status { get; }

@@ -25,6 +25,11 @@ namespace TextParserPlugin
 
         internal class TextParser : IParser<TData>
         {
+            public TextParser()
+            {
+                Status = "ok";
+            }
+
             #region Implementation of IParser<TData>
 
             public string Status { get; }

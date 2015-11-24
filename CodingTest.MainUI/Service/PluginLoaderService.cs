@@ -10,6 +10,8 @@
 
     using MvvmCross.Plugins.File;
 
+    //IParserPlugin<TData>
+
     public class PluginLoaderService<TPlugin> : IPluginManager<TPlugin>
         where TPlugin : class, IPlugin
     {
@@ -33,6 +35,13 @@
             var dllFileNames = Directory.GetFiles(this.path, "*.dll");
 
             var pluginType = typeof(TPlugin);
+            Type[] dataType = new Type[] { };
+            if (pluginType.IsGenericType)
+            {
+                dataType = pluginType.GetGenericArguments();
+                pluginType = pluginType.GetGenericTypeDefinition();
+            }
+
             foreach (var fileName in dllFileNames)
             {
                 var assembly = Assembly.Load(AssemblyName.GetAssemblyName(fileName));
@@ -52,7 +61,10 @@
                     {
                         if (type.GetInterface(pluginType.Name) != null)
                         {
-                            Plugins.Add(Activator.CreateInstanceFrom(fileName, type.FullName).Unwrap() as TPlugin);
+                            var plugin = dataType != null ? type.MakeGenericType(dataType) : type;
+                            var item = Activator.CreateInstance(plugin);
+
+                            Plugins.Add(item as TPlugin);
                         }
                     }
                 }

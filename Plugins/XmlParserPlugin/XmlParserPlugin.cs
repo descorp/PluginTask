@@ -20,6 +20,11 @@ namespace XmlParserPlugin
 
         internal class XmlParser : IParser<TData>
         {
+            public XmlParser()
+            {
+                Status = "ok";
+            }
+
             #region Implementation of IParser<TData>
 
             public string Status { get; }
