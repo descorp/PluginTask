@@ -22,9 +22,9 @@ namespace CodingTest.MainUI
 
         #region Overrides of MvxSetup
 
-        protected override void InitializeLastChance()
+        protected override void InitializeFirstChance()
         {
-            base.InitializeLastChance();
+            base.InitializeFirstChance();
 
             Mvx.RegisterSingleton<IPluginManager<IParserPlugin<DataSample>>>(new PluginLoaderService<IParserPlugin<DataSample>>("Plugins"));
         }

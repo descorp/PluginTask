@@ -10,21 +10,15 @@
 
     using MvvmCross.Plugins.File;
 
-    public class PluginLoaderService<TSomePlugin> : IPluginManager<TSomePlugin>
-        where TSomePlugin : IPlugin
+    public class PluginLoaderService<TPlugin> : IPluginManager<TPlugin>
+        where TPlugin : class, IPlugin
     {
         private readonly string path;
 
         public PluginLoaderService(string path)
         {
             this.path = path;
-        }
-
-        private readonly IMvxFileStore file;
-
-        public PluginLoaderService(IMvxFileStore file)
-        {
-            this.file = file;
+            Plugins = new List<TPlugin>();
         }
 
         #region Implementation of IPluginManager
@@ -33,22 +27,15 @@
         {
             if (!Directory.Exists(this.path))
             {
-                throw new FileNotFoundException($"No such folder {this.path}");
+                Directory.CreateDirectory(path);
             }
 
-            var dllFileNames = Directory.GetFiles(this.path, "*.dll");           
-                            
-            ICollection<Assembly> assemblies = new List<Assembly>(dllFileNames.Count());
-            foreach (var assembly in dllFileNames.Select(dllFile => Assembly.Load(AssemblyName.GetAssemblyName(dllFile))))
-            {
-                assemblies.Add(assembly);
-            }
+            var dllFileNames = Directory.GetFiles(this.path, "*.dll");
 
-            var pluginType = typeof(TSomePlugin);
-
-            ICollection<Type> pluginTypes = new List<Type>();
-            foreach (var assembly in assemblies)
+            var pluginType = typeof(TPlugin);
+            foreach (var fileName in dllFileNames)
             {
+                var assembly = Assembly.Load(AssemblyName.GetAssemblyName(fileName));
                 if (assembly == null)
                 {
                     continue;
@@ -63,16 +50,16 @@
                     }
                     else
                     {
-                        if (type.GetInterface(pluginType.FullName) != null)
+                        if (type.GetInterface(pluginType.Name) != null)
                         {
-                            pluginTypes.Add(type);
+                            Plugins.Add(Activator.CreateInstanceFrom(fileName, type.FullName).Unwrap() as TPlugin);
                         }
                     }
                 }
             }
         }
 
-        public List<TSomePlugin> Plugins { get; } = new List<TSomePlugin>();
+        public List<TPlugin> Plugins { get; }
 
         #endregion
     }

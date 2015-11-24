@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace CodingTest.Common.Parser
 {
@@ -6,6 +7,6 @@ namespace CodingTest.Common.Parser
     {
         string Status { get; }
 
-        Task<TData> Process(string raw);
+        Task<List<TData>> Process(string raw);
     }
 }
