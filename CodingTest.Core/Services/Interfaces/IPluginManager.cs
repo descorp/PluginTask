@@ -1,4 +1,4 @@
-namespace CodingTest.Core.Services
+namespace CodingTest.Core.Services.Interfaces
 {
     using System.Collections.Generic;
 

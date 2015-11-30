@@ -42,19 +42,22 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\DataStorageService.cs" />
     <Compile Include="Services\FolderObserverService.cs" />
+    <Compile Include="Services\Interfaces\IAppContextService.cs" />
+    <Compile Include="Services\Interfaces\IAssemblyExtractor.cs" />
+    <Compile Include="Utils\FileSystemHelper.cs" />
     <Compile Include="ViewModels\Items\ObservedFileItem.cs" />
-    <Compile Include="Services\IFolderObserver.cs" />
-    <Compile Include="Services\IParserService.cs" />
-    <Compile Include="Services\IPluginManager.cs" />
+    <Compile Include="Services\Interfaces\IFolderObserver.cs" />
+    <Compile Include="Services\Interfaces\IParserService.cs" />
+    <Compile Include="Services\Interfaces\IPluginManager.cs" />
     <Compile Include="Services\Messages\NewDataMessage.cs" />
     <Compile Include="Services\Messages\NewFileMessage.cs" />
     <Compile Include="Services\Messages\NewPluginMessage.cs" />
     <Compile Include="Services\ParserService.cs" />
     <Compile Include="Services\PluginLoader.cs" />
     <Compile Include="ViewModels\Items\FileInfoItem.cs" />
-    <Compile Include="ViewModels\Items\PluginItem.cs" />
     <Compile Include="ViewModels\RootViewModel.cs" />
     <Compile Include="ViewModels\Tabs\FolderControllerViewModel.cs" />
+    <Compile Include="ViewModels\Items\PluginItem.cs" />
     <Compile Include="ViewModels\Tabs\PluginsViewModel.cs" />
     <Compile Include="ViewModels\Tabs\DataViewModel.cs" />
   </ItemGroup>

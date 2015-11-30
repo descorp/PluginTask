@@ -98,12 +98,14 @@
     <Compile Include="Bootstrap\FilePluginBootstrap.cs" />
     <Compile Include="Bootstrap\MessengerPluginBootstrap.cs" />
     <Compile Include="DebugTrace.cs" />
+    <Compile Include="Service\AppContextService.cs" />
+    <Compile Include="Service\PluginLoaderService.cs" />
     <Compile Include="Setup.cs" />
     <Compile Include="Views\DataView.xaml.cs">
       <DependentUpon>DataView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\FirstView.xaml.cs">
-      <DependentUpon>FirstView.xaml</DependentUpon>
+    <Compile Include="Views\RootView.xaml.cs">
+      <DependentUpon>RootView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\FolderView.xaml.cs">
       <DependentUpon>FolderView.xaml</DependentUpon>
@@ -145,7 +147,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\FirstView.xaml">
+    <Page Include="Views\RootView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -168,9 +170,7 @@
       <Name>CodingTest.Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Service\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

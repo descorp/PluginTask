@@ -7,6 +7,7 @@
 
     using MvvmCross.Plugins.File;
     using MvvmCross.Plugins.Messenger;
+    using Interfaces;
 
     public class FolderObserverService : IFolderObserver
     {

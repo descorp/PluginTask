@@ -3,9 +3,9 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Threading.Tasks;
 
     using CodingTest.Common.Model;
+    using CodingTest.Core.Services.Interfaces;
 
     using MvvmCross.Plugins.Messenger;
 
@@ -49,7 +49,7 @@
             }
         }
 
-        public List<ObservedFileItem<DataSample>> ObservedFiles { get; set; }
+        public List<ObservedFileItem<DataSample>> ObservedFiles { get; set; } = new List<ObservedFileItem<DataSample>>();
     }
 
     public interface IDataStorage<TData>
