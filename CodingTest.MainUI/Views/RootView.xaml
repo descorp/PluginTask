@@ -1,0 +1,27 @@
+<views:MvxWpfView 
+             x:Class="CodingTest.MainUI.Views.RootView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                                   xmlns:views="clr-namespace:Cirrious.MvvmCross.Wpf.Views;assembly=Cirrious.MvvmCross.Wpf"
+                                   xmlns:views1="clr-namespace:CodingTest.MainUI.Views"
+                                   mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="600">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1.5*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <views1:DataView Grid.Column="1" Margin="5" DataContext="{Binding Data}">
+        </views1:DataView>
+
+        <views1:FolderView Grid.Column="0" Margin="5" DataContext="{Binding Folder}" >
+        </views1:FolderView>
+
+        <views1:PluginsView Grid.Column="2" Margin="5" DataContext="{Binding Plugins}" >
+        </views1:PluginsView>
+        
+    </Grid>
+</views:MvxWpfView>

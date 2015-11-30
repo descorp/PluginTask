@@ -7,6 +7,34 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <TextBox Grid.Column="1" x:Name="label" Text="{Binding Folder}" VerticalAlignment="Center"/>
+        <Button x:Name="scanBtn" Grid.Row="0" Grid.Column="0" Content="Scan" Command="{Binding ChooseFolderCommand}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Margin="5"/>
+        <ListView x:Name="listView" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" ItemsSource="{Binding ScanedFiles}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Column="0" Text="{Binding Name}"/>
+                        <TextBlock Grid.Column="1" Text="{Binding Update}"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+
     </Grid>
 </UserControl>
