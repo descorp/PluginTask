@@ -17,7 +17,7 @@ namespace TextParserPlugin
 
         #region IParserPlugin<TData> Members
 
-        public string Name { get; set; }
+        public string Name { get; set; } = "TextParserPlugin";
 
         #endregion
 

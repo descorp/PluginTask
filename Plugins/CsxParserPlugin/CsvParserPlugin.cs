@@ -17,7 +17,7 @@ namespace CsxParserPlugin
 
         #region IParserPlugin<TData> Members
 
-        public string Name { get; set; }
+        public string Name { get; set; } = "CsvParserPlugin";
 
         #endregion
 
