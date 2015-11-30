@@ -5,10 +5,12 @@
     using System.Linq;
     using System.Windows.Input;
 
+    using Cirrious.CrossCore;
     using Cirrious.MvvmCross.ViewModels;
 
-    using CodingTest.Core.Services;
-    using CodingTest.Core.ViewModels.Items;
+    using Services;
+    using Services.Interfaces;
+    using Items;
 
     using MvvmCross.Plugins.Messenger;
 
@@ -39,10 +41,10 @@
                 this.files.Add(a.Path, DateTime.Now);
             }
 
-            this.RaisePropertyChanged(() => this.FilesScaned);
+            this.RaisePropertyChanged(() => this.ScanedFiles);
         }
 
-        private string folder = "Files";
+        private string folder = Mvx.Resolve<IAppContextService>().LocalPath + "\\Files";
 
         public string Folder
         {
@@ -89,7 +91,7 @@
             this.observer.Start();
         }
 
-        public List<FileInfoItem> FilesScaned
+        public List<FileInfoItem> ScanedFiles
         {
             get
             {
@@ -97,7 +99,7 @@
                     this.files.Select(n =>
                     {
                         var name = n.Key.Substring(n.Key.LastIndexOf('/') + 1);
-                        return new FileInfoItem { NAME = name, Update = DateTime.Now.ToString("G") };
+                        return new FileInfoItem { Name = name, Update = DateTime.Now.ToString("G") };
                     })
                         .ToList();
             }

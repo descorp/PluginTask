@@ -1,27 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CodingTest.Core.ViewModels.Items
+﻿namespace CodingTest.Core.ViewModels.Items
 {
     using Cirrious.MvvmCross.ViewModels;
 
     public class FileInfoItem : MvxNotifyPropertyChanged
     {
-        private string nAME;
+        private string name;
 
-        public string NAME
+        public string Name
         {
             get
             {
-                return this.nAME;
+                return this.name;
             }
             set
             {
-                this.nAME = value;
-                this.RaisePropertyChanged(() => this.NAME);
+                this.name = value;
+                this.RaisePropertyChanged(() => this.Name);
             }
         }
 

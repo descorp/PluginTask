@@ -1,13 +1,15 @@
 ﻿namespace CodingTest.Core.ViewModels.Tabs
 {
     using System.Collections.ObjectModel;
+    using System.Linq;
     using System.Windows.Input;
 
     using Cirrious.MvvmCross.ViewModels;
 
     using CodingTest.Common.Model;
     using CodingTest.Common.Plugins;
-    using CodingTest.Core.Services;
+    using CodingTest.Core.Services.Interfaces;
+    using CodingTest.Core.Utils;
 
     public class PluginsViewModel : MvxViewModel
     {
@@ -22,7 +24,7 @@
 
         public ICommand RefreshPluginsCommand => this.refreshPluginsCommand ?? (this.refreshPluginsCommand = new MvxCommand(this.DoRefreshPluginsCommand));
 
-        private string defaultFolder = "Plugins";
+        private string defaultFolder = FileSystemHelper.AppLocalFolder + "\\Plugins";
 
         public string DefaultFolder
         {
@@ -37,7 +39,7 @@
             }
         }
 
-        public ObservableCollection<IPlugin> PluginsList => new ObservableCollection<IPlugin>(this.plugins.Plugins);
+        public ObservableCollection<PluginItem> PluginsList => new ObservableCollection<PluginItem>(this.plugins.Plugins.Select(n => new PluginItem(n)));
 
         private void DoRefreshPluginsCommand()
         {

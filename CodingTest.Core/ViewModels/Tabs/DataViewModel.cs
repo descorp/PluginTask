@@ -1,6 +1,5 @@
 ﻿namespace CodingTest.Core.ViewModels.Tabs
 {
-    using System.Collections.Generic;
     using System.Collections.ObjectModel;
 
     using Cirrious.MvvmCross.ViewModels;

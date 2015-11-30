@@ -1,45 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CodingTest.Core.ViewModels.Items
+namespace CodingTest.Core.ViewModels.Tabs
 {
     using Cirrious.MvvmCross.ViewModels;
 
+    using CodingTest.Common.Model;
+    using CodingTest.Common.Plugins;
+
     public class PluginItem : MvxNotifyPropertyChanged
     {
-        private string name;
+        private readonly IParserPlugin<DataSample> context;
 
-        public string Name
+        public PluginItem(IParserPlugin<DataSample> plugin)
         {
-            get
-            {
-                return this.name;
-            }
-            set
-            {
-                this.name = value;
-                this.RaisePropertyChanged(() => this.Name);
-            }
+            this.context = plugin;
         }
 
-        private string fileFormat;
+        public string Name => this.context.Name;
 
-        public string FileFormat
-        {
-            get
-            {
-                return this.fileFormat;
-            }
-            set
-            {
-                this.fileFormat = value;
-                this.RaisePropertyChanged(() => this.FileFormat);
-            }
-        }
+        public string Format => this.context.FileFormat;
 
-        
+        public string Status => this.context.Parser != null ? this.context.Parser.Status : "error";
     }
 }

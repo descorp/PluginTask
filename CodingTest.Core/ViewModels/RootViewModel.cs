@@ -4,8 +4,6 @@ namespace CodingTest.Core.ViewModels
 {
     using Cirrious.CrossCore;
 
-    using CodingTest.Common.Model;
-    using CodingTest.Core.Services;
     using CodingTest.Core.ViewModels.Tabs;
 
     public class RootViewModel : MvxViewModel

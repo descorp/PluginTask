@@ -4,8 +4,6 @@
 
     using Cirrious.MvvmCross.ViewModels;
 
-    using CodingTest.Common.Model;
-
     public class ObservedFileItem<TData> : MvxNotifyPropertyChanged
     {
         private string name;
