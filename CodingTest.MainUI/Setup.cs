@@ -8,9 +8,10 @@ namespace CodingTest.MainUI
 {
     using Cirrious.CrossCore;
 
-    using CodingTest.Common.Model;
-    using CodingTest.Common.Plugins;
-    using CodingTest.Core.Services;
+    using Common.Model;
+    using Common.Plugins;
+    using Core.Services.Interfaces;
+    using Service;
 
     public class Setup
         : MvxWpfSetup
@@ -19,6 +20,18 @@ namespace CodingTest.MainUI
             : base(dispatcher, presenter)
         {
         }
+
+        #region Overrides of MvxSetup
+
+        protected override void InitializeFirstChance()
+        {
+            base.InitializeFirstChance();
+
+            Mvx.ConstructAndRegisterSingleton<IAssemblyExtractor<IParserPlugin<DataSample>>, AssemblyExtractor<IParserPlugin<DataSample>>>();
+            Mvx.ConstructAndRegisterSingleton<IAppContextService, AppContextService >();
+        }
+
+        #endregion
 
         protected override IMvxApplication CreateApp()
         {
