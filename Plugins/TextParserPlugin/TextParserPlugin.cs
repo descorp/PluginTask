@@ -9,6 +9,7 @@ using CodingTest.Common.Plugins;
 namespace TextParserPlugin
 {
     public class TextParserPlugin<TData> : IParserPlugin<TData>
+        where TData : class
     {
         public TextParserPlugin()
         {
@@ -39,7 +40,7 @@ namespace TextParserPlugin
                 var data = new List<TData>();
                 var fs = File.ReadAllLines(filename).ToList();
 
-                var fields = fs[0].Split(new[] { " ", "   " }, StringSplitOptions.RemoveEmptyEntries);
+                var fields = fs[0].Split(new[] { ";" }, StringSplitOptions.RemoveEmptyEntries);
 
                 foreach (var line in fs.Skip(fs.IndexOf("Content:") + 2))
                 {

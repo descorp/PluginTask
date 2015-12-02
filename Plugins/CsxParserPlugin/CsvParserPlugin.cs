@@ -9,6 +9,7 @@ using CodingTest.Common.Plugins;
 namespace CsxParserPlugin
 {
     public class CsvParserPlugin<TData> : IParserPlugin<TData>
+        where TData : class
     {
         public CsvParserPlugin()
         {
