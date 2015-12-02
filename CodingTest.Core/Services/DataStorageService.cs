@@ -6,6 +6,7 @@
 
     using CodingTest.Common.Model;
     using CodingTest.Core.Services.Interfaces;
+    using CodingTest.Core.Utils;
 
     using MvvmCross.Plugins.Messenger;
 
@@ -26,26 +27,25 @@
 
         private async void ProcessNewFile(NewFileMessage a)
         {
-            var data = await this.parser.Parse(a.Path);
-
-            if (data != null)
+            try
             {
+                var data = await this.parser.Parse(a.Path);
+
                 this.ObservedFiles.Add(
                     new ObservedFileItem<DataSample>()
                         {
-                            Name = a.Path.Substring(a.Path.LastIndexOf('/') + 1),
+                            Name = FileSystemHelper.FileName(a.Path),
                             LastUpdate = DateTime.Now.ToString("G"),
                             Data = data.ToList()
                         });
             }
-            else
+            catch (Exception exc)
             {
-                this.ObservedFiles.Add(
-                    new ObservedFileItem<DataSample>()
-                    {
-                        Name = a.Path.Substring(a.Path.LastIndexOf('/') + 1),
-                        LastUpdate = "n/a"
-                    });
+                this.ObservedFiles.Add(new ObservedFileItem<DataSample>() { Name = FileSystemHelper.FileName(a.Path), LastUpdate = exc.Message });
+            }
+            finally
+            {
+                this.hub.Publish<NewDataMessage>(new NewDataMessage(this));
             }
         }
 

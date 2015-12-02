@@ -95,10 +95,12 @@
         {
             get
             {
+                var dictionary = this.files.ToList();
+
                 return
-                    this.files.Select(n =>
+                    dictionary.Select(n =>
                     {
-                        var name = n.Key.Substring(n.Key.LastIndexOf('/') + 1);
+                        var name = n.Key.Substring(n.Key.LastIndexOf('\\') + 1);
                         return new FileInfoItem { Name = name, Update = DateTime.Now.ToString("G") };
                     })
                         .ToList();
