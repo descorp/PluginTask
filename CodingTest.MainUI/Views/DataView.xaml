@@ -16,34 +16,17 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
                 </Grid.ColumnDefinitions>
 
-                <TextBlock
-                        Grid.Row="0"
-                        Grid.ColumnSpan="2"
-                        Margin="0,12,0,0"
-                        TextAlignment="Right"
-                        Text="{Binding Name}" />
-                <TextBlock
-                                        Grid.Row="1"
-                                        Grid.Column="0"
-                                        Margin="0,0,0,0"
-                                        Text="{Binding Update}" />
-                <TextBlock
-                                        Grid.Row="1"
-                                        Grid.Column="1"
-                                        TextWrapping="Wrap"
-                                        Margin="0,-24,0,0"
-                                        Text="{Binding Count}" />
+                <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Margin="0,12,0,0" TextAlignment="Right" Text="{Binding Name}" />
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding Update}" HorizontalAlignment="Center" />
+                <TextBlock Grid.Row="1" Grid.Column="1" TextWrapping="Wrap"  Text="{Binding Count}" HorizontalAlignment="Center" />
             </Grid>
         </DataTemplate>
     </views:MvxWpfView.Resources>
     <Grid>
-        <ListBox
-                        ItemsSource="{Binding DataList}"
-                        ItemTemplate="{StaticResource FileItemTemplate}">
-        </ListBox>
+        <ListBox ItemsSource="{Binding DataList}" ItemTemplate="{StaticResource FileItemTemplate}"/>
     </Grid>
 </views:MvxWpfView>

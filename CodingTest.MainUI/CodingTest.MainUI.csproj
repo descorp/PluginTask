@@ -99,7 +99,7 @@
     <Compile Include="Bootstrap\MessengerPluginBootstrap.cs" />
     <Compile Include="DebugTrace.cs" />
     <Compile Include="Service\AppContextService.cs" />
-    <Compile Include="Service\PluginLoaderService.cs" />
+    <Compile Include="Service\AssemblyExtractor.cs" />
     <Compile Include="Setup.cs" />
     <Compile Include="Views\DataView.xaml.cs">
       <DependentUpon>DataView.xaml</DependentUpon>
